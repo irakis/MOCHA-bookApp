@@ -2,19 +2,19 @@ const formatFullName = require('../formatFullname.js');
 const expect = require('chai').expect;
 
 describe('formatFullNme', () => {
-    it('should return Error if there is no arg', ()=> {
-        expect(formatFullName('')).to.equal('Error');
+    it('should throw Error if there is no arg', ()=> {
+        expect(() => { formatFullName('') }).to.throw('Error');
     });
-    it('should return Error if arg is not a string', ()=> {
-        expect(formatFullName(12)).to.equal('Error');
-        expect(formatFullName([])).to.equal('Error');
-        expect(formatFullName({})).to.equal('Error');
-        expect(formatFullName(function(){})).to.equal('Error');
-        expect(formatFullName(undefined)).to.equal('Error');
+    it('should throw Error if arg is not a string', ()=> {
+        expect(() => { formatFullName(12) }).to.throw('Error');
+        expect(() => { formatFullName([]) }).to.throw('Error');
+        expect(() => { formatFullName({}) }).to.throw('Error');
+        expect(() => { formatFullName(function(){}) }).to.throw('Error');
+        expect(() => { formatFullName(undefined) }).to.throw('Error');
     });
-    it('should return Error if there is more or less than name and lastName ', ()=> {
-        expect(formatFullName('')).to.equal('Error');
-        expect(formatFullName('John')).to.equal('Error');
-        expect(formatFullName('John Doe Mac')).to.equal('Error');
+    it('should throw Error if there is more or less than name and lastName ', ()=> {
+        expect(() => { formatFullName('') }).to.throw('Error');
+        expect(() => { formatFullName('John') }).to.throw('Error');
+        expect(() => { formatFullName('John Doe Mac') }).to.throw('Error');
     });
 })
